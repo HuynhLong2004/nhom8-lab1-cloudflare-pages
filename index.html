@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>LAB 1 - An toàn điện toán đám mây</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-/* Simple responsive styles for the LAB 1 page */
+    <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
@@ -20,12 +19,10 @@
 html, body { height: 100%; }
 body {
     margin: 0;
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
     color: #111827;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .container {
@@ -38,28 +35,24 @@ body {
 }
 
 h1 {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--accent);
 }
 
 h2 {
-    font-size: 1.15rem;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
     color: #0f172a;
 }
 
-p { margin: 0 0 1rem 0; }
-
-ul { margin: 0 0 1rem 1.25rem; }
-li { margin: 0.35rem 0; }
+p { margin-bottom: 1rem; }
+ul { margin-left: 1.2rem; }
 
 footer {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     padding-top: 1rem;
-    border-top: 1px solid #eef2ff;
+    border-top: 1px solid #e5e7eb;
     color: var(--muted);
     text-align: center;
     font-size: 0.9rem;
@@ -69,36 +62,91 @@ footer {
     .container {
         margin: 1rem;
         padding: 1rem;
-        border-radius: 10px;
     }
-    h1 { font-size: 1.4rem; }
 }
-
-/* Small utility */
-.muted { color: var(--muted); }
-        </style>
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
+<div class="container">
+    <h1>LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
 
-        <h2>Thông tin nhóm</h2>
-        <ul>
-            <li>Thành viên 1: Nguyễn Văn A</li>
-            <li>Thành viên 2: Trần Thị B</li>
-            <li>Thành viên 3: Lê Văn C</li>
-        </ul>
+    <h2>1. Thông tin nhóm</h2>
+    <ul>
+        <li>Trần Huỳnh Long – 22004060</li>
+        <li>Phạm Phúc Đạo – 22004066</li>
+        <li>Nguyễn Thế Lực – 22004131</li>
+    </ul>
 
-        <h2>Nội dung chính</h2>
-        <p>
-            Website này được xây dựng nhằm giới thiệu bài thực hành LAB Tuần 1
-            môn An toàn điện toán đám mây, bao gồm việc triển khai website tĩnh
-            trên nền tảng Cloudflare Pages.
-        </p>
+    <h2>2. Giới thiệu bài lab</h2>
+    <p>
+        Website này được xây dựng nhằm phục vụ bài thực hành LAB Tuần 1
+        môn An toàn điện toán đám mây. Nội dung tập trung vào việc tìm hiểu
+        kiến trúc cloud cơ bản, triển khai website tĩnh và phân tích các yếu tố
+        an toàn như HTTPS và CDN.
+    </p>
 
-        <footer>
-            <p>© 2025 - Nhóm X</p>
-        </footer>
-    </div>
+    <h2>3. Cloud Computing là gì?</h2>
+    <p>
+        Cloud Computing (Điện toán đám mây) là mô hình cung cấp tài nguyên
+        công nghệ thông tin như máy chủ, lưu trữ, mạng và phần mềm thông qua Internet.
+        Người dùng có thể truy cập tài nguyên theo nhu cầu mà không cần quản lý
+        hạ tầng vật lý.
+    </p>
+
+    <h2>4. Các mô hình dịch vụ Cloud</h2>
+    <ul>
+        <li><strong>IaaS (Infrastructure as a Service):</strong> Cung cấp hạ tầng ảo như máy chủ, mạng, lưu trữ.</li>
+        <li><strong>PaaS (Platform as a Service):</strong> Cung cấp nền tảng để phát triển và triển khai ứng dụng.</li>
+        <li><strong>SaaS (Software as a Service):</strong> Cung cấp phần mềm hoàn chỉnh cho người dùng.</li>
+    </ul>
+
+    <h2>5. Website tĩnh thuộc mô hình nào?</h2>
+    <p>
+        Website tĩnh thường thuộc mô hình <strong>PaaS</strong> hoặc <strong>SaaS</strong>,
+        vì người dùng chỉ cần tải mã nguồn lên và không phải quản lý máy chủ hay hệ điều hành.
+    </p>
+
+    <h2>6. Cloudflare Pages</h2>
+    <p>
+        Cloudflare Pages là dịch vụ triển khai website tĩnh dựa trên CDN toàn cầu
+        của Cloudflare. Dịch vụ này cho phép kết nối trực tiếp với GitHub và tự động
+        deploy mỗi khi mã nguồn được cập nhật.
+    </p>
+
+    <h2>7. CDN – Content Delivery Network</h2>
+    <p>
+        CDN là mạng lưới các máy chủ phân tán trên toàn cầu, giúp phân phối nội dung
+        website từ vị trí gần người dùng nhất, từ đó tăng tốc độ truy cập và giảm tải
+        cho máy chủ gốc.
+    </p>
+
+    <h2>8. Vai trò của CDN đối với hiệu năng và an toàn</h2>
+    <ul>
+        <li>Tăng tốc độ tải trang</li>
+        <li>Giảm độ trễ truy cập</li>
+        <li>Chống tấn công DDoS</li>
+        <li>Hỗ trợ HTTPS và mã hóa dữ liệu</li>
+    </ul>
+
+    <h2>9. Rủi ro bảo mật còn tồn tại</h2>
+    <ul>
+        <li>Lỗ hổng XSS từ mã JavaScript</li>
+        <li>Lộ thông tin nhạy cảm trong mã nguồn</li>
+        <li>Phụ thuộc vào dịch vụ bên thứ ba</li>
+    </ul>
+
+    <h2>10. Giải pháp</h2>
+    <ul>
+        <li>Bắt buộc sử dụng HTTPS</li>
+        <li>Thiết lập HTTP Security Headers</li>
+        <li>Kiểm tra mã nguồn trước khi triển khai</li>
+        <li>Sử dụng CDN và WAF</li>
+    </ul>
+
+    <footer>
+        <p>© 2025 – LAB An toàn điện toán đám mây</p>
+    </footer>
+</div>
 </body>
 </html>
