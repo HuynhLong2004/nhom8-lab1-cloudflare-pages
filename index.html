@@ -1,152 +1,223 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>LAB 1 - An toàn điện toán đám mây</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+<meta charset="UTF-8">
+<title>LAB 1 - An toàn điện toán đám mây</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
 :root {
-    --bg-start: #f0f6ff;
-    --bg-end: #f9fbff;
-    --accent: #0b61ff;
-    --muted: #6b7280;
-    --card-bg: #ffffff;
+    --primary: #2563eb;
+    --secondary: #0ea5e9;
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+
 body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
-    color: #111827;
-    line-height: 1.6;
+    background: linear-gradient(180deg, #eef4ff, #f8fafc);
+    color: var(--text);
+    line-height: 1.65;
 }
 
-.container {
-    max-width: 920px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(2,6,23,0.06);
+/* ===== Layout ===== */
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
 }
 
-h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent);
+/* ===== Header ===== */
+.header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(37,99,235,0.25);
+    margin-bottom: 2rem;
 }
 
-h2 {
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
-    color: #0f172a;
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
 }
 
-p { margin-bottom: 1rem; }
-ul { margin-left: 1.2rem; }
+.header p {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    opacity: 0.95;
+}
 
-footer {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e5e7eb;
+/* ===== Section Card ===== */
+.section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ===== Team ===== */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.member {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid var(--primary);
+}
+
+.member strong {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.member span {
+    font-size: 0.85rem;
     color: var(--muted);
+}
+
+/* ===== Lists ===== */
+ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+li {
+    margin: 0.4rem 0;
+}
+
+/* ===== Footer ===== */
+footer {
     text-align: center;
+    margin-top: 2rem;
+    color: var(--muted);
     font-size: 0.9rem;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 640px) {
-    .container {
-        margin: 1rem;
-        padding: 1rem;
+    .header {
+        padding: 2rem 1.5rem;
+    }
+    .header h1 {
+        font-size: 1.5rem;
     }
 }
-    </style>
+</style>
 </head>
 
 <body>
-<div class="container">
-    <h1>LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
 
-    <h2>1. Thông tin nhóm</h2>
-    <ul>
-        <li>Trần Huỳnh Long – 22004060</li>
-        <li>Phạm Phúc Đào – 22004066</li>
-        <li>Nguyễn Thế Lực – 22004131</li>
-    </ul>
+<div class="wrapper">
 
-    <h2>2. Giới thiệu bài lab</h2>
-    <p>
-        Website này được xây dựng nhằm phục vụ bài thực hành LAB Tuần 1
-        môn An toàn điện toán đám mây. Nội dung tập trung vào việc tìm hiểu
-        kiến trúc cloud cơ bản, triển khai website tĩnh và phân tích các yếu tố
-        an toàn như HTTPS và CDN.
-    </p>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>☁️ LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
+        <p>Tìm hiểu Cloud Computing – CDN – Cloudflare Pages & triển khai website tĩnh an toàn</p>
+    </div>
 
-    <h2>3. Cloud Computing là gì?</h2>
-    <p>
-        Cloud Computing (Điện toán đám mây) là mô hình cung cấp tài nguyên
-        công nghệ thông tin như máy chủ, lưu trữ, mạng và phần mềm thông qua Internet.
-        Người dùng có thể truy cập tài nguyên theo nhu cầu mà không cần quản lý
-        hạ tầng vật lý.
-    </p>
+    <!-- TEAM -->
+    <div class="section">
+        <h2>👥 Thông tin nhóm</h2>
+        <div class="team">
+            <div class="member">
+                <strong>Trần Huỳnh Long</strong>
+                <span>MSSV: 22004060</span>
+            </div>
+            <div class="member">
+                <strong>Phạm Phúc Đào</strong>
+                <span>MSSV: 22004066</span>
+            </div>
+            <div class="member">
+                <strong>Nguyễn Thế Lực</strong>
+                <span>MSSV: 22004131</span>
+            </div>
+        </div>
+    </div>
 
-    <h2>4. Các mô hình dịch vụ Cloud</h2>
-    <ul>
-        <li><strong>IaaS (Infrastructure as a Service):</strong> Cung cấp hạ tầng ảo như máy chủ, mạng, lưu trữ.</li>
-        <li><strong>PaaS (Platform as a Service):</strong> Cung cấp nền tảng để phát triển và triển khai ứng dụng.</li>
-        <li><strong>SaaS (Software as a Service):</strong> Cung cấp phần mềm hoàn chỉnh cho người dùng.</li>
-    </ul>
+    <!-- INTRO -->
+    <div class="section">
+        <h2>📘 Giới thiệu bài lab</h2>
+        <p>
+            Bài thực hành LAB Tuần 1 giúp sinh viên làm quen với điện toán đám mây,
+            hiểu kiến trúc cloud cơ bản, triển khai website tĩnh và phân tích các yếu tố
+            an toàn như HTTPS, CDN và bảo mật ứng dụng web.
+        </p>
+    </div>
 
-    <h2>5. Website tĩnh thuộc mô hình nào?</h2>
-    <p>
-        Website tĩnh thường thuộc mô hình <strong>PaaS</strong> hoặc <strong>SaaS</strong>,
-        vì người dùng chỉ cần tải mã nguồn lên và không phải quản lý máy chủ hay hệ điều hành.
-    </p>
+    <!-- CLOUD -->
+    <div class="section">
+        <h2>☁️ Cloud Computing là gì?</h2>
+        <p>
+            Cloud Computing là mô hình cung cấp tài nguyên CNTT (máy chủ, lưu trữ,
+            mạng, phần mềm) thông qua Internet. Người dùng có thể sử dụng tài nguyên
+            theo nhu cầu mà không cần quản lý hạ tầng vật lý.
+        </p>
+    </div>
 
-    <h2>6. Cloudflare Pages</h2>
-    <p>
-        Cloudflare Pages là dịch vụ triển khai website tĩnh dựa trên CDN toàn cầu
-        của Cloudflare. Dịch vụ này cho phép kết nối trực tiếp với GitHub và tự động
-        deploy mỗi khi mã nguồn được cập nhật.
-    </p>
+    <div class="section">
+        <h2>🧩 Các mô hình dịch vụ Cloud</h2>
+        <ul>
+            <li><strong>IaaS:</strong> Cung cấp hạ tầng ảo (VM, network, storage)</li>
+            <li><strong>PaaS:</strong> Cung cấp nền tảng để triển khai ứng dụng</li>
+            <li><strong>SaaS:</strong> Cung cấp phần mềm hoàn chỉnh cho người dùng</li>
+        </ul>
+    </div>
 
-    <h2>7. CDN – Content Delivery Network</h2>
-    <p>
-        CDN là mạng lưới các máy chủ phân tán trên toàn cầu, giúp phân phối nội dung
-        website từ vị trí gần người dùng nhất, từ đó tăng tốc độ truy cập và giảm tải
-        cho máy chủ gốc.
-    </p>
+    <div class="section">
+        <h2>🌐 Website tĩnh & Cloudflare Pages</h2>
+        <p>
+            Website tĩnh thường thuộc mô hình PaaS/SaaS. Cloudflare Pages cho phép
+            kết nối GitHub, tự động deploy website và phân phối nội dung qua CDN toàn cầu.
+        </p>
+    </div>
 
-    <h2>8. Vai trò của CDN đối với hiệu năng và an toàn</h2>
-    <ul>
-        <li>Tăng tốc độ tải trang</li>
-        <li>Giảm độ trễ truy cập</li>
-        <li>Chống tấn công DDoS</li>
-        <li>Hỗ trợ HTTPS và mã hóa dữ liệu</li>
-    </ul>
+    <div class="section">
+        <h2>🚀 CDN & Vai trò bảo mật</h2>
+        <ul>
+            <li>Tăng tốc độ tải trang</li>
+            <li>Giảm độ trễ truy cập</li>
+            <li>Chống tấn công DDoS</li>
+            <li>Hỗ trợ HTTPS & mã hóa dữ liệu</li>
+        </ul>
+    </div>
 
-    <h2>9. Rủi ro bảo mật còn tồn tại</h2>
-    <ul>
-        <li>Lỗ hổng XSS từ mã JavaScript</li>
-        <li>Lộ thông tin nhạy cảm trong mã nguồn</li>
-        <li>Phụ thuộc vào dịch vụ bên thứ ba</li>
-    </ul>
-
-    <h2>10. Giải pháp</h2>
-    <ul>
-        <li>Bắt buộc sử dụng HTTPS</li>
-        <li>Thiết lập HTTP Security Headers</li>
-        <li>Kiểm tra mã nguồn trước khi triển khai</li>
-        <li>Sử dụng CDN và WAF</li>
-    </ul>
+    <div class="section">
+        <h2>⚠️ Rủi ro & Giải pháp</h2>
+        <ul>
+            <li>Nguy cơ XSS → kiểm tra mã nguồn</li>
+            <li>Lộ dữ liệu → không lưu thông tin nhạy cảm phía client</li>
+            <li>Thiết lập HTTPS, Security Headers, WAF</li>
+        </ul>
+    </div>
 
     <footer>
-        <p>© 2025 – LAB An toàn điện toán đám mây</p>
+        © 2025 – LAB An toàn điện toán đám mây | Cloudflare Pages
     </footer>
+
 </div>
 </body>
 </html>
