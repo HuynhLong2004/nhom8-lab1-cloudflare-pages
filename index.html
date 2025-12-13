@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB 1 - An toàn điện toán đám mây</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+/* Simple responsive styles for the LAB 1 page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-start: #f0f6ff;
+    --bg-end: #f9fbff;
+    --accent: #0b61ff;
+    --muted: #6b7280;
+    --card-bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 920px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.06);
+}
+
+h1 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+h2 {
+    font-size: 1.15rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+p { margin: 0 0 1rem 0; }
+
+ul { margin: 0 0 1rem 1.25rem; }
+li { margin: 0.35rem 0; }
+
+footer {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eef2ff;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    h1 { font-size: 1.4rem; }
+}
+
+/* Small utility */
+.muted { color: var(--muted); }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
+
+        <h2>Thông tin nhóm</h2>
+        <ul>
+            <li>Thành viên 1: Nguyễn Văn A</li>
+            <li>Thành viên 2: Trần Thị B</li>
+            <li>Thành viên 3: Lê Văn C</li>
+        </ul>
+
+        <h2>Nội dung chính</h2>
+        <p>
+            Website này được xây dựng nhằm giới thiệu bài thực hành LAB Tuần 1
+            môn An toàn điện toán đám mây, bao gồm việc triển khai website tĩnh
+            trên nền tảng Cloudflare Pages.
+        </p>
+
+        <footer>
+            <p>© 2025 - Nhóm X</p>
+        </footer>
+    </div>
+</body>
+</html>
