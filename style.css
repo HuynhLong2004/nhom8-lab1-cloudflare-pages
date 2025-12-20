@@ -1,0 +1,174 @@
+/* Thiết lập chung */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f7; /* Màu nền nhẹ nhàng */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: #ff7a00; /* Màu cam nổi bật */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Các khối nội dung */
+.section-card {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #007bff; /* Màu xanh dương cho tiêu đề lớn */
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h3 {
+    color: #ff7a00; /* Màu cam cho tiêu đề phụ */
+    margin-top: 25px;
+}
+
+/* Danh sách thành viên */
+.member-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.member-list li {
+    background: #f8f9fa;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    border-left: 5px solid #007bff;
+    border-radius: 4px;
+}
+
+/* Khối nội dung chi tiết */
+.content-block {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fcfcfc;
+}
+
+.content-block ul {
+    padding-left: 20px;
+}
+
+/* Rủi ro và Giải pháp */
+.risk-solution {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.risks, .solutions {
+    flex: 1;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.risks {
+    background-color: #ffe8e8; /* Nền đỏ nhạt cho Rủi ro */
+    border: 1px solid #ff7a7a;
+}
+
+.solutions {
+    background-color: #e8fff1; /* Nền xanh nhạt cho Giải pháp */
+    border: 1px solid #7affc9;
+}
+
+.risks h4 {
+    color: #cc0000;
+}
+
+.solutions h4 {
+    color: #008000;
+}
+
+.risks li {
+    color: #5a0000;
+}
+
+.solutions li {
+    color: #005a00;
+}
+
+/* Thư viện hình ảnh */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.gallery figure {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    flex: 1 1 45%; /* Chia làm 2 cột */
+    min-width: 300px;
+}
+
+.gallery-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    padding-top: 10px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    color: #777;
+    border-top: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+/* Responsive cơ bản */
+@media (max-width: 768px) {
+    .risk-solution {
+        flex-direction: column;
+    }
+    .gallery {
+        flex-direction: column;
+    }
+    .gallery figure {
+        flex: 1 1 100%;
+    }
+}

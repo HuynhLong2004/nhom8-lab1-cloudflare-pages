@@ -1,0 +1,36 @@
+/*
+  Security Headers for A/A+ Score (Tối ưu)
+  Áp dụng cho mọi đường dẫn (/*)
+*/
+/*
+  1. Strict-Transport-Security (HSTS): Bắt buộc HTTPS trong 2 năm, bao gồm subdomain và sẵn sàng cho preload.
+*/
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+/*
+  2. X-Frame-Options: Ngăn chặn tuyệt đối việc bị nhúng vào frame.
+*/
+X-Frame-Options: DENY
+
+/*
+  3. X-Content-Type-Options: Chống MIME-sniffing.
+*/
+X-Content-Type-Options: nosniff
+
+/*
+  4. Referrer-Policy: Chỉ gửi Referrer khi kết nối an toàn (HTTPS).
+*/
+Referrer-Policy: no-referrer-when-downgrade
+
+/*
+  5. Content-Security-Policy (CSP): Quan trọng nhất.
+  - 'self': Cho phép nội dung chỉ từ chính domain của bạn.
+  - 'unsafe-inline': Cần thiết vì bạn đang sử dụng CSS nội tuyến trong code HTML.
+  - frame-ancestors 'none': Rất nghiêm ngặt, ngăn chặn nhúng frame từ mọi nơi.
+*/
+Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'
+
+/*
+  6. Permissions-Policy: Tắt các API nguy hiểm không cần thiết.
+*/
+Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=()

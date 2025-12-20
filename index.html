@@ -2,222 +2,109 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>LAB 1 - An toàn điện toán đám mây</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-
-:root {
-    --primary: #2563eb;
-    --secondary: #0ea5e9;
-    --bg: #f4f7fb;
-    --card: #ffffff;
-    --text: #0f172a;
-    --muted: #64748b;
-}
-
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-    background: linear-gradient(180deg, #eef4ff, #f8fafc);
-    color: var(--text);
-    line-height: 1.65;
-}
-
-/* ===== Layout ===== */
-.wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem 1rem 3rem;
-}
-
-/* ===== Header ===== */
-.header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: #fff;
-    padding: 2.5rem 2rem;
-    border-radius: 18px;
-    box-shadow: 0 20px 40px rgba(37,99,235,0.25);
-    margin-bottom: 2rem;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 800;
-}
-
-.header p {
-    margin-top: 0.75rem;
-    font-size: 1rem;
-    opacity: 0.95;
-}
-
-/* ===== Section Card ===== */
-.section {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 1.8rem 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
-}
-
-.section h2 {
-    margin-top: 0;
-    font-size: 1.25rem;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* ===== Team ===== */
-.team {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.member {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 1rem 1.2rem;
-    border-left: 4px solid var(--primary);
-}
-
-.member strong {
-    display: block;
-    font-size: 0.95rem;
-}
-
-.member span {
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-
-/* ===== Lists ===== */
-ul {
-    padding-left: 1.2rem;
-    margin: 0.5rem 0 0;
-}
-
-li {
-    margin: 0.4rem 0;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 640px) {
-    .header {
-        padding: 2rem 1.5rem;
-    }
-    .header h1 {
-        font-size: 1.5rem;
-    }
-}
-</style>
+<title>LAB 1 - An toàn Điện toán Đám mây</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <h1>LAB TUẦN 1: AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
+    </header>
 
-<div class="wrapper">
+    <div class="container">
+        <section class="section-card">
+            <h2>Website giới thiệu nhóm & Dự án</h2>
+            <p>
+            Website này được xây dựng nhằm mục đích tìm hiểu và triển khai
+            một trang web tĩnh sử dụng GitHub và Cloudflare Pages.
+            </p>
+            
+            <h3>Thành viên nhóm</h3>
+            <ul class="member-list">
+                <li>22004060 – Trần Huỳnh Long</li>
+                <li>22004066 – Phạm Phúc Đào</li>
+                <li>22004131 – Nguyễn Thế Lực</li>
+            </ul>
+        </section>
 
-    <!-- HEADER -->
-    <div class="header">
-        <h1>☁️ LAB TUẦN 1 – AN TOÀN ĐIỆN TOÁN ĐÁM MÂY</h1>
-        <p>Tìm hiểu Cloud Computing – CDN – Cloudflare Pages & triển khai website tĩnh an toàn</p>
-    </div>
+        <section class="section-card">
+            <h2>Tóm tắt Yêu cầu 1: Kiến thức Cơ bản về Cloud & CDN</h2>
 
-    <!-- TEAM -->
-    <div class="section">
-        <h2>👥 Thông tin nhóm</h2>
-        <div class="team">
-            <div class="member">
-                <strong>Trần Huỳnh Long</strong>
-                <span>MSSV: 22004060</span>
+            <div class="content-block">
+                <h3>I. Kiến trúc Cloud Computing cơ bản</h3>
+                <ul>
+                    <li><b>Cloud Computing là gì?</b> Đề cập đến các máy chủ được truy cập qua Internet, đặt tại các trung tâm dữ liệu. Giúp người dùng/công ty không cần tự quản lý máy chủ vật lý.</li>
+                    <li><b>IaaS – PaaS – SaaS:</b>
+                        <ul>
+                            <li><b>SaaS (Phần mềm):</b> Ứng dụng trên cloud, truy cập qua Internet (ví dụ: Slack). Giống thuê nhà.</li>
+                            <li><b>PaaS (Nền tảng):</b> Cung cấp công cụ và hạ tầng để xây dựng ứng dụng riêng (ví dụ: Heroku). Giống thuê công cụ xây nhà.</li>
+                            <li><b>IaaS (Cơ sở hạ tầng):</b> Thuê máy chủ, lưu trữ để tự xây dựng ứng dụng (ví dụ: GCE). Giống thuê đất để tự xây.</li>
+                        </ul>
+                    </li>
+                    <li>Website tĩnh được phân loại chuẩn là <b>IaaS</b> (Cloud cung cấp hạ tầng, người dùng triển khai ứng dụng). Cloudflare Pages hoạt động theo cơ chế Static Site Hosting kết hợp CDN tại Edge, thuộc mô hình <b>PaaS</b>.</li>
+                </ul>
             </div>
-            <div class="member">
-                <strong>Phạm Phúc Đào</strong>
-                <span>MSSV: 22004066</span>
+
+            <div class="content-block">
+                <h3>II. CDN (Content Delivery Network)</h3>
+                <ul>
+                    <li><b>Cơ chế:</b> Sao chép dữ liệu từ máy chủ gốc đến các máy chủ biên (Edge Server) đặt gần người dùng để giảm độ trễ và tăng hiệu năng.</li>
+                    <li><b>Vai trò:</b> Cải thiện tốc độ tải trang, giảm chi phí băng thông, tăng khả năng truy cập/dự phòng, và tăng cường bảo mật (giảm thiểu tấn công DDoS).</li>
+                </ul>
             </div>
-            <div class="member">
-                <strong>Nguyễn Thế Luc</strong>
-                <span>MSSV: 22004131</span>
+
+            <div class="content-block">
+                <h3>III. An toàn và Giải pháp</h3>
+                <div class="risk-solution">
+                    <div class="risks">
+                        <h4>🔴 Rủi ro Bảo mật còn tồn tại</h4>
+                        <ul>
+                            <li><b>Lộ Origin Server:</b> Kẻ tấn công tìm ra IP thật của server gốc để Bypass CDN và tấn công trực tiếp (DDoS, brute force).</li>
+                            <li><b>Cấu hình cache sai:</b> CDN cache nhầm nội dung độc hại (Cache Poisoning).</li>
+                            <li><b>Tấn công API/Nội dung động:</b> CDN chủ yếu bảo vệ nội dung tĩnh; API phía sau vẫn có thể bị SQL Injection, XSS, Brute Force.</li>
+                            <li><b>SSL cấu hình không đúng:</b> Dùng chế độ Flexible SSL có nguy cơ Man-in-the-Middle (MITM).</li>
+                        </ul>
+                    </div>
+                    <div class="solutions">
+                        <h4>🟢 Giải pháp Tăng cường Bảo mật</h4>
+                        <ul>
+                            <li><b>Ẩn & bảo vệ Origin Server:</b> Chặn truy cập origin ngoài IP CDN (dùng Firewall, Private Network).</li>
+                            <li><b>Cấu hình cache an toàn:</b> Thiết lập Cache-Control đúng chuẩn, không cache nội dung động/nhạy cảm.</li>
+                            <li><b>Sử dụng SSL end-to-end:</b> Bật Full / Full (Strict) SSL và dùng chứng chỉ hợp lệ ở origin.</li>
+                            <li><b>Bật các lớp phòng thủ CDN:</b> WAF, Rate Limiting, Bot Management, DDoS Protection.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- INTRO -->
-    <div class="section">
-        <h2>📘 Giới thiệu bài lab</h2>
-        <p>
-            Bài thực hành LAB Tuần 1 giúp sinh viên làm quen với điện toán đám mây,
-            hiểu kiến trúc cloud cơ bản, triển khai website tĩnh và phân tích các yếu tố
-            an toàn như HTTPS, CDN và bảo mật ứng dụng web.
-        </p>
-    </div>
+        <section class="section-card image-gallery">
+            <h2>Hình ảnh Minh họa</h2>
 
-    <!-- CLOUD -->
-    <div class="section">
-        <h2>☁️ Cloud Computing là gì?</h2>
-        <p>
-            Cloud Computing là mô hình cung cấp tài nguyên CNTT (máy chủ, lưu trữ,
-            mạng, phần mềm) thông qua Internet. Người dùng có thể sử dụng tài nguyên
-            theo nhu cầu mà không cần quản lý hạ tầng vật lý.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>🧩 Các mô hình dịch vụ Cloud</h2>
-        <ul>
-            <li><strong>IaaS:</strong> Cung cấp hạ tầng ảo (VM, network, storage)</li>
-            <li><strong>PaaS:</strong> Cung cấp nền tảng để triển khai ứng dụng</li>
-            <li><strong>SaaS:</strong> Cung cấp phần mềm hoàn chỉnh cho người dùng</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🌐 Website tĩnh & Cloudflare Pages</h2>
-        <p>
-            Website tĩnh thường thuộc mô hình PaaS/SaaS. Cloudflare Pages cho phép
-            kết nối GitHub, tự động deploy website và phân phối nội dung qua CDN toàn cầu.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>🚀 CDN & Vai trò bảo mật</h2>
-        <ul>
-            <li>Tăng tốc độ tải trang</li>
-            <li>Giảm độ trễ truy cập</li>
-            <li>Chống tấn công DDoS</li>
-            <li>Hỗ trợ HTTPS & mã hóa dữ liệu</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>⚠️ Rủi ro & Giải pháp</h2>
-        <ul>
-            <li>Nguy cơ XSS → kiểm tra mã nguồn</li>
-            <li>Lộ dữ liệu → không lưu thông tin nhạy cảm phía client</li>
-            <li>Thiết lập HTTPS, Security Headers, WAF</li>
-        </ul>
+            <div class="gallery">
+                <figure>
+                    <img src="hinh_dtdm1.png" alt="Hình minh họa Mạng phân phối Nội dung (CDN)" class="gallery-image">
+                    <figcaption>Hình 1: Minh họa Mạng phân phối Nội dung (CDN)</figcaption>
+                </figure>
+                <figure>
+                    <img src="hinh_dtdm2.png" alt="Hình minh họa Luồng yêu cầu qua CDN Edge Server và Origin Server" class="gallery-image">
+                    <figcaption>Hình 2: Luồng yêu cầu qua CDN Edge Server</figcaption>
+                </figure>
+                <figure>
+                    <img src="hinh_dtdm3.png" alt="Hình minh họa sự khác biệt giữa Cache Hit và Cache Miss" class="gallery-image">
+                    <figcaption>Hình 3: Minh họa Cache Hit và Cache Miss</figcaption>
+                </figure>
+                <figure>
+                    <img src="hinh_dtdm4.png" alt="Hình minh họa Bản đồ Mạng lưới toàn cầu" class="gallery-image">
+                    <figcaption>Hình 4: Mạng lưới Toàn cầu của nhà cung cấp Cloud</figcaption>
+                </figure>
+            </div>
+        </section>
     </div>
 
     <footer>
-        © 2025 – LAB An toàn điện toán đám mây | Cloudflare Pages
+        <p>&copy; 2025 Nhóm LAB Tuần 1</p>
     </footer>
-
-</div>
 </body>
 </html>
+
