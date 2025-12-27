@@ -559,7 +559,7 @@
                 <h3>III. Hình ảnh minh họa</h3>
                 <div class="gallery-grid">
                     <figure class="gallery-item">
-                        <img src="hinh_dtdm1.png" alt="Mô hình CDN" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=CDN+Image+1'">
+                        <img src="  _dtdm1.png" alt="Mô hình CDN" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=CDN+Image+1'">
                         <figcaption>Hình 1: Cơ chế hoạt động CDN</figcaption>
                     </figure>
                     <figure class="gallery-item">
@@ -741,8 +741,125 @@
 
         <section id="lab3" class="lab-section">
             <div class="card">
-                <h2>LAB TUẦN 3</h2>
-                <p style="color: #64748b; font-style: italic;">Nội dung đang được cập nhật...</p>
+                <h2>LAB TUẦN 3: Triển khai & An toàn Cloud</h2>
+                
+                <div class="highlight-box">
+                    <h4><i class="fa-solid fa-bullseye"></i> Mục tiêu Lab 3</h4>
+                    <p>Lab 3 tập trung vào việc triển khai ứng dụng web có lỗ hổng (OWASP Juice Shop) trên môi trường local (Container) để:</p>
+                    <ul class="content-list" style="margin-top: 10px;">
+                        <li>Hiểu cơ chế triển khai ứng dụng Cloud-native bằng Docker.</li>
+                        <li>Phân tích rủi ro bảo mật (SQL Injection) khi ứng dụng đưa lên môi trường Cloud.</li>
+                        <li>Chứng minh vai trò của Cloud trong việc khuếch đại rủi ro hoặc cung cấp lớp bảo vệ.</li>
+                    </ul>
+                </div>
+
+                <h3>I. Công nghệ sử dụng</h3>
+                <div style="margin: 15px 0;">
+                    <span class="badge" style="background: #007bff; color: white;"><i class="fa-brands fa-docker"></i> Docker Desktop</span>
+                    <span class="badge" style="background: #fca311; color: white;"><i class="fa-brands fa-linux"></i> WSL2</span>
+                    <span class="badge" style="background: #6c757d; color: white;"><i class="fa-solid fa-cart-shopping"></i> OWASP Juice Shop</span>
+                </div>
+
+                <h3>II. Quy trình thực hành triển khai</h3>
+                <p>Để mô phỏng môi trường Cloud-native, nhóm đã thực hiện các bước sau:</p>
+                <ul class="content-list" style="margin-top: 10px;">
+                    <li><strong>Bước 1:</strong> Cài đặt Docker Desktop trên Windows và cấu hình tài nguyên.</li>
+                    <li><strong>Bước 2:</strong> Kích hoạt WSL2 (Windows Subsystem for Linux) để chạy Linux container ổn định.</li>
+                    <li><strong>Bước 3:</strong> Pull image <code>bkimminich/juice-shop</code> từ Docker Hub.</li>
+                    <li><strong>Bước 4:</strong> Chạy container và expose port 3000 (Mapping port).</li>
+                    <li><strong>Bước 5:</strong> Truy cập ứng dụng qua trình duyệt tại <code>localhost:3000</code>.</li>
+                </ul>
+                <p style="margin-top: 10px; font-style: italic; color: #047857;">
+                    <i class="fa-solid fa-check"></i> <strong>Kết luận:</strong> Quy trình trên mô phỏng chính xác cách một ứng dụng web được đóng gói và triển khai nhanh chóng (Deployment) giống như trong môi trường Cloud thực tế.
+                </p>
+
+                <div class="gallery-grid" style="margin-top: 20px;">
+                    <figure class="gallery-item">
+                        <img src="juice-shop-docker.png" alt="Docker Running">
+                        <figcaption>Hình 3.1: Container Juice Shop đang chạy trên Docker</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/juice-shop/juice-shop/master/screenshots/slideshow.gif" alt="Giao diện Juice Shop">
+                        <figcaption>Hình 3.2: Giao diện ứng dụng truy cập qua trình duyệt</figcaption>
+                    </figure>
+                </div>
+
+                <h3>III. Phân tích lỗ hổng: SQL Injection</h3>
+                
+                <div class="comparison-grid">
+                     <div>
+                        <p><strong>SQL Injection (SQLi)</strong> cho phép kẻ tấn công chèn câu lệnh SQL độc hại qua input form.</p>
+                        <ul class="content-list" style="margin-top: 10px;">
+                            <li><strong>Vị trí:</strong> Form Đăng nhập (Login) hoặc Tìm kiếm (Search).</li>
+                            <li><strong>Nguyên nhân:</strong> Thiếu Input Validation và nối chuỗi SQL thủ công.</li>
+                            <li><strong>Bản chất:</strong> Lỗi từ <em>Code ứng dụng</em>, KHÔNG phải lỗi Cloud.</li>
+                        </ul>
+                    </div>
+                    <figure class="gallery-item" style="margin-top:0;">
+                         
+                        <img src="sql-injection-docker.png" alt="Minh họa nhập liệu">
+                        <figcaption>Hình 3.3: Vị trí nhập dữ liệu có thể gây lỗi SQLi</figcaption>
+                    </figure>
+                </div>
+
+                <h3>IV. Tại sao lỗ hổng nguy hiểm hơn trên Cloud?</h3>
+                
+                <div class="highlight-box" style="background: #fff7ed; border-left-color: #f97316;">
+                    <strong><i class="fa-solid fa-scale-balanced"></i> So sánh Local vs Cloud:</strong>
+                    <p style="margin-top: 5px;">
+                        Nếu ứng dụng chạy <strong>Local</strong>, phạm vi ảnh hưởng chỉ giới hạn trong mạng nội bộ. 
+                        Tuy nhiên, khi triển khai trên <strong>Public Cloud</strong>, ứng dụng ngay lập tức đối mặt với các botnet quét lỗ hổng tự động từ Internet toàn cầu 24/7, biến một lỗi nhỏ thành thảm họa lớn.
+                    </p>
+                </div>
+
+                <div class="member-grid">
+                    <div class="member-card" style="background: #fff1f2; border-color: #fda4af;">
+                        <div class="member-name" style="color: #be123c; font-size: 1.1rem; margin-bottom: 5px;">
+                            <i class="fa-solid fa-database"></i> Dữ Liệu
+                        </div>
+                        <span style="font-size: 0.9rem;">Rò rỉ thông tin nhạy cảm & mất tính toàn vẹn.</span>
+                    </div>
+                    <div class="member-card" style="background: #fff7ed; border-color: #fdba74;">
+                        <div class="member-name" style="color: #c2410c; font-size: 1.1rem; margin-bottom: 5px;">
+                            <i class="fa-solid fa-user-shield"></i> Người Dùng
+                        </div>
+                        <span style="font-size: 0.9rem;">Lộ PII, mất tài khoản & giảm niềm tin.</span>
+                    </div>
+                    <div class="member-card" style="background: #eff6ff; border-color: #93c5fd;">
+                        <div class="member-name" style="color: #1d4ed8; font-size: 1.1rem; margin-bottom: 5px;">
+                            <i class="fa-solid fa-server"></i> Hệ Thống
+                        </div>
+                        <span style="font-size: 0.9rem;">Gián đoạn dịch vụ & lây lan mã độc.</span>
+                    </div>
+                </div>
+
+                <h3>V. Giải pháp & Trách nhiệm chia sẻ</h3>
+                
+                <div class="comparison-grid">
+                    <div class="box box-solution">
+                        <h4><i class="fa-solid fa-shield-halved"></i> Các lớp bảo vệ Cloud</h4>
+                        <ul class="content-list">
+                            <li><i class="fa-solid fa-cloud" style="color: #059669; margin-right: 5px;"></i> <strong>Network:</strong> Security Groups, VPC.</li>
+                            <li><i class="fa-solid fa-filter" style="color: #059669; margin-right: 5px;"></i> <strong>App Security:</strong> Web App Firewall (WAF).</li>
+                            <li><i class="fa-solid fa-binoculars" style="color: #059669; margin-right: 5px;"></i> <strong>Monitoring:</strong> Cloud Logging & Alert.</li>
+                        </ul>
+                    </div>
+                    <div class="diagram-container" style="margin: 0;">
+                         
+                        <img src="https://learn.microsoft.com/en-us/azure/security/fundamentals/media/shared-responsibility/shared-responsibility.svg" alt="Mô hình trách nhiệm chia sẻ" style="width: 100%; border-radius: 8px; border: 1px solid #ddd;">
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px; border-left-color: #8b5cf6; background: linear-gradient(to right, #f5f3ff, #ede9fe);">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: #5b21b6; text-align: center; margin-bottom: 10px;">
+                        <i class="fa-solid fa-quote-left"></i> Cloud không tạo ra lỗ hổng, Cloud chỉ khuếch đại hoặc giảm thiểu hậu quả của lỗ hổng tùy vào cách chúng ta cấu hình.
+                    </p>
+                    <hr style="border: 0; border-top: 1px dashed #c4b5fd; margin: 10px 0;">
+                    <p style="text-align: center; color: #4c1d95;">
+                        <strong>Bài học:</strong> Bảo mật là sự kết hợp giữa <em>Secure Coding</em> (Dev) + <em>Secure Configuration</em> (Ops).
+                    </p>
+                </div>
+
             </div>
         </section>
         <section id="lab4" class="lab-section">
@@ -812,7 +929,7 @@
         var acc = document.getElementsByClassName("accordion");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
+                this.classList.toggle('active');
                 var panel = this.nextElementSibling;
                 if (panel.style.maxHeight) {
                     panel.style.maxHeight = null;
