@@ -5,36 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAB An toàn Điện toán Đám mây | Portfolio Nhóm</title>
     
+    <!-- Updated Fonts: Inter for Body, Outfit for Headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* Tech & Security Color Palette */
-            --primary-color: #3b82f6;      /* Blue 500 */
-            --primary-dark: #1d4ed8;       /* Blue 700 */
-            --primary-glow: rgba(59, 130, 246, 0.5);
+            /* --- Professional Enterprise Palette --- */
+            --primary-color: #2563eb;       /* Royal Blue - Trustworthy */
+            --primary-dark: #1e40af;        /* Dark Blue */
+            --accent-color: #0f172a;        /* Slate 900 - Strong contrast */
             
-            --secondary-color: #94a3b8;    /* Slate 400 */
-            --accent-color: #06b6d4;       /* Cyan 500 - Cloud feel */
+            --bg-body: #f8fafc;             /* Very light slate - Clean background */
+            --bg-sidebar: #0f172a;          /* Dark sidebar */
+            --bg-card: #ffffff;             /* Pure white cards */
             
-            --bg-color: #f0f4f8;           /* Very light blue-gray */
-            --sidebar-bg: #0f172a;         /* Slate 900 - Dark theme for sidebar */
+            --text-main: #334155;           /* Slate 700 - Readable text */
+            --text-heading: #0f172a;        /* Slate 900 - Sharp headings */
+            --text-muted: #64748b;          /* Slate 500 */
             
+            --border-color: #e2e8f0;        /* Light border */
             --sidebar-width: 280px;
-            --text-color: #334155;
-            --heading-color: #1e293b;
             
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --gradient-main: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            --gradient-hero: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --radius: 12px;
+            --transition: all 0.25s ease-in-out;
         }
 
         * {
@@ -44,107 +45,100 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif; /* Modern tech font */
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
-            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
             display: flex;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         /* --- Sidebar Styling --- */
         .sidebar {
             width: var(--sidebar-width);
-            background: var(--sidebar-bg);
-            color: white;
-            padding: 2rem 1.5rem;
+            background: var(--bg-sidebar);
+            color: #f1f5f9;
+            padding: 0;
             position: fixed;
             height: 100vh;
             left: 0;
             top: 0;
             z-index: 1000;
-            box-shadow: 4px 0 24px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
-            border-right: 1px solid rgba(255,255,255,0.05);
         }
 
         .brand {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: #fff;
+            padding: 24px;
             display: flex;
             align-items: center;
             gap: 12px;
-            letter-spacing: 1px;
-            padding-bottom: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.2);
         }
 
         .brand i {
-            color: var(--accent-color);
-            filter: drop-shadow(0 0 5px var(--accent-color));
+            color: #60a5fa; /* Light Blue */
         }
 
         .nav-links {
             list-style: none;
             flex: 1;
+            padding: 24px 16px;
+            overflow-y: auto;
         }
 
         .nav-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 4px;
         }
 
         .nav-links a {
             display: flex;
             align-items: center;
-            padding: 14px 18px;
-            color: #94a3b8;
+            padding: 12px 16px;
+            color: #94a3b8; /* Muted text */
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 8px;
             font-weight: 500;
-            transition: var(--transition);
             font-size: 0.95rem;
-            border: 1px solid transparent;
+            transition: var(--transition);
         }
 
         .nav-links a i {
-            margin-right: 14px;
+            margin-right: 12px;
             width: 20px;
             text-align: center;
-            transition: var(--transition);
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
             background: rgba(255, 255, 255, 0.05);
-            color: #e2e8f0;
-            transform: translateX(4px);
+            color: #fff;
         }
 
         .nav-links a.active {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-color);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .nav-links a.active i {
-            color: var(--accent-color);
+            color: white;
         }
 
         .sidebar-footer {
-            font-size: 0.75rem;
+            padding: 20px;
+            font-size: 0.8rem;
             color: #64748b;
             text-align: center;
-            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.1);
         }
 
         /* --- Main Content --- */
@@ -157,105 +151,124 @@
         }
 
         header {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         header h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 2.25rem;
-            color: var(--heading-color);
+            font-size: 2rem;
+            color: var(--text-heading);
             font-weight: 800;
-            background: linear-gradient(to right, var(--primary-dark), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            letter-spacing: -0.02em;
         }
 
         /* --- Sections & Cards --- */
         .lab-section {
             display: none;
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 0.4s ease-out;
         }
 
         .lab-section.active {
             display: block;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .card {
-            background: var(--card-bg);
-            border-radius: 20px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
             padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255,255,255,0.8);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Special handling for Lab 5 which doesn't have .card class in original HTML */
+        #lab5 {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+
+        #lab5.active {
+            display: block;
         }
 
         /* Highlight Style for Intro Section */
         #intro .card {
-            background: white;
-            border-left: 5px solid var(--accent-color);
+            border-left: 4px solid var(--primary-color);
         }
 
-        #intro h2 {
-            font-size: 1.8rem;
-        }
-
+        /* Typography */
         h2 {
             font-family: 'Outfit', sans-serif;
-            color: var(--heading-color);
-            font-size: 1.6rem;
+            color: var(--text-heading);
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             font-weight: 700;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--bg-body);
         }
         
         h2 i {
-            background: rgba(6, 182, 212, 0.1);
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 1.2rem;
+            margin-right: 12px;
+            color: var(--primary-color);
+            font-size: 1.25rem;
         }
 
         h3 {
             color: var(--primary-dark);
-            margin: 2rem 0 1.2rem;
+            margin: 2rem 0 1rem;
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+        
+        h4 {
+            color: var(--text-heading);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        /* --- Member List (Highlight) --- */
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        strong {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        /* --- Member List --- */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .member-card {
             background: white;
             padding: 2rem 1.5rem;
-            border-radius: 20px;
+            border-radius: var(--radius);
             text-align: center;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
             transition: var(--transition);
-            position: relative;
-            z-index: 1;
         }
 
-        /* Avatar Placeholder Effect */
+        /* Avatar styling adapted for original HTML structure */
         .member-card::before {
             content: '\f007'; /* FontAwesome User Icon */
             font-family: "Font Awesome 6 Free";
@@ -263,29 +276,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
+            width: 64px;
+            height: 64px;
+            background: #eff6ff; /* Light Blue 50 */
+            color: var(--primary-color);
             border-radius: 50%;
             margin: 0 auto 1rem auto;
             font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+            transition: var(--transition);
         }
 
         .member-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        
+        .member-card:hover::before {
+            background: var(--primary-color);
+            color: white;
         }
 
         .member-id {
-            font-family: 'Roboto Mono', monospace; /* Tech vibe for IDs */
+            font-family: 'Roboto Mono', monospace;
             font-size: 0.85rem;
-            color: var(--accent-color);
-            background: rgba(6, 182, 212, 0.1);
+            color: var(--text-muted);
+            background: var(--bg-body);
             padding: 4px 10px;
-            border-radius: 20px;
+            border-radius: 6px;
             display: inline-block;
             margin-bottom: 0.8rem;
             font-weight: 500;
@@ -293,265 +311,268 @@
 
         .member-name {
             font-weight: 700;
-            color: var(--heading-color);
-            font-size: 1.15rem;
+            color: var(--text-heading);
+            font-size: 1.1rem;
         }
 
-        /* --- Content Styling --- */
-        p {
-            color: #475569;
+        /* --- Lists --- */
+        ul, ol {
             margin-bottom: 1rem;
         }
-
-        strong {
-            color: var(--primary-dark);
-        }
-
-        ul {
+        
+        /* Specific content list styling */
+        .content-list {
             list-style: none;
         }
 
         .content-list li {
             position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
-            color: #475569;
+            padding-left: 20px;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
         }
 
         .content-list li::before {
-            content: '\f058'; /* Check circle icon */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
+            content: "•";
             color: var(--primary-color);
+            font-weight: bold;
             position: absolute;
             left: 0;
-            top: 2px;
-            font-size: 0.9rem;
+            font-size: 1.2em;
+            line-height: 1.5rem;
+        }
+        
+        /* Basic lists in Lab 5 */
+        #lab5 ul, #lab5 ol {
+            padding-left: 1.5rem;
+        }
+        #lab5 li {
+            margin-bottom: 0.5rem;
         }
 
-        /* --- Risk & Solutions --- */
+        /* --- Comparison Boxes --- */
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
         .box {
             padding: 1.5rem;
-            border-radius: 16px;
-            position: relative;
+            border-radius: var(--radius);
             border: 1px solid transparent;
         }
 
         .box-risk {
-            background-color: #fef2f2;
-            border-color: #fecaca;
+            background-color: #fff1f2; /* Rose 50 */
+            border-color: #fecdd3;     /* Rose 200 */
         }
+        .box-risk h4 { color: #be123c; display: flex; align-items: center; gap: 8px; }
 
         .box-solution {
-            background-color: #f0fdfa;
-            border-color: #99f6e4;
+            background-color: #ecfdf5; /* Emerald 50 */
+            border-color: #a7f3d0;     /* Emerald 200 */
         }
-
-        .box h4 {
-            margin-bottom: 1rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .box-risk h4 { color: #dc2626; }
-        .box-solution h4 { color: #059669; }
+        .box-solution h4 { color: #047857; display: flex; align-items: center; gap: 8px; }
 
         /* --- Gallery --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 24px;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .gallery-item {
             background: white;
-            border-radius: 16px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin: 0; /* Override default figure margin */
             transition: var(--transition);
-            border: 1px solid #f1f5f9;
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
+            max-height: 250px;
             object-fit: cover;
             display: block;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
         .gallery-item figcaption {
-            padding: 1.2rem;
+            padding: 12px;
             text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-color);
-            background: white;
-            border-top: 1px solid #f1f5f9;
-            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
         }
 
-        /* --- Table Styling --- */
-        .modern-table {
+        /* --- Tables --- */
+        table, .modern-table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            margin-top: 1.5rem;
-            border-radius: 12px;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
-        .modern-table th, .modern-table td {
-            padding: 16px 20px;
+        th {
+            background-color: #f8fafc;
+            color: var(--text-heading);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
             text-align: left;
         }
 
-        .modern-table th {
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
             background-color: #f8fafc;
-            color: var(--primary-dark);
-            font-weight: 700;
+        }
+
+        /* --- UI Elements --- */
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-            border-bottom: 2px solid #e2e8f0;
+            letter-spacing: 0.5px;
+            margin-right: 6px;
+            display: inline-block;
         }
 
-        .modern-table tr:not(:last-child) td {
-            border-bottom: 1px solid #f1f5f9;
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
-        .modern-table tr:hover {
+        .link-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff;
+            color: var(--text-heading);
+            cursor: pointer;
+            padding: 16px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion:hover {
             background-color: #f8fafc;
+            box-shadow: var(--shadow-md);
         }
 
-        /* --- Mobile Toggle --- */
+        .accordion.active {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .accordion:after {
+            content: '\f078';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+        }
+
+        .accordion.active:after {
+            transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        .panel {
+            padding: 0 16px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 2px solid var(--border-color);
+            margin-left: 8px;
+            margin-bottom: 12px;
+        }
+        
+        /* Mobile Menu */
         .menu-toggle {
             display: none;
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1100;
-            background: var(--primary-color);
+            background: var(--bg-sidebar);
             color: white;
             border: none;
             padding: 12px;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-            transition: transform 0.2s;
-        }
-        
-        .menu-toggle:active {
-            transform: scale(0.95);
-        }
-
-        /* --- Accordion --- */
-        .accordion {
-            background-color: white;
-            color: var(--heading-color);
-            cursor: pointer;
-            padding: 20px;
-            width: 100%;
-            text-align: left;
-            border: 1px solid #e2e8f0;
-            outline: none;
-            transition: 0.3s;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            font-family: 'Outfit', sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .accordion:after {
-            content: '\f078'; /* FontAwesome chevron down */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 0.8rem;
-            color: var(--secondary-color);
-            transition: transform 0.3s;
-        }
-
-        .accordion.active:after {
-            transform: rotate(180deg);
-        }
-
-        .accordion.active, .accordion:hover {
-            background-color: #f0f9ff;
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .panel {
-            padding: 0 20px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            border-radius: 0 0 12px 12px;
-            border-left: 2px solid var(--primary-color);
-            margin-top: -10px;
-            margin-bottom: 15px;
-        }
-
-        /* Link Button */
-        .link-button {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 15px;
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-            font-size: 0.95rem;
-        }
-
-        .link-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
-            filter: brightness(1.1);
-        }
-
-        .highlight-box {
-            background: #f0fdfa;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-color);
-            margin-bottom: 25px;
-        }
-        
-        .badge {
-            background: #e2e8f0;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #475569;
-            margin-right: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         /* --- Responsive Design --- */
@@ -575,10 +596,8 @@
             .menu-toggle {
                 display: block;
             }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .member-grid { grid-template-columns: 1fr; }
-            
-            header h1 { font-size: 1.8rem; }
+            .gallery-grid, .member-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.75rem; }
         }
     </style>
 </head>
@@ -591,15 +610,15 @@
     <nav class="sidebar" id="sidebar">
         <div class="brand">
             <i class="fa-solid fa-shield-halved"></i>
-            <span>SEC-LAB</span>
+            <span>CLOUD SECURITY</span>
         </div>
         <ul class="nav-links">
             <li><a href="#intro" class="active" onclick="showLab('intro')"><i class="fa-solid fa-users"></i> Giới thiệu Nhóm</a></li>
             <li><a href="#lab1" onclick="showLab('lab1')"><i class="fa-solid fa-cloud"></i> Lab Tuần 1</a></li>
             <li><a href="#lab2" onclick="showLab('lab2')"><i class="fa-solid fa-id-card-clip"></i> Lab Tuần 2 (IAM)</a></li>
-            <li><a href="#lab3" onclick="showLab('lab3')"><i class="fa-regular fa-clock"></i> Lab Tuần 3</a></li>
-            <li><a href="#lab4" onclick="showLab('lab4')"><i class="fa-regular fa-clock"></i> Lab Tuần 4</a></li>
-            <li><a href="#lab5" onclick="showLab('lab5')"><i class="fa-regular fa-clock"></i> Lab Tuần 5</a></li>
+            <li><a href="#lab3" onclick="showLab('lab3')"><i class="fa-solid fa-bug"></i> Lab Tuần 3</a></li>
+            <li><a href="#lab4" onclick="showLab('lab4')"><i class="fa-solid fa-chart-line"></i> Lab Tuần 4</a></li>
+            <li><a href="#lab5" onclick="showLab('lab5')"><i class="fa-solid fa-triangle-exclamation"></i> Lab Tuần 5</a></li>
         </ul>
         <div class="sidebar-footer">
             &copy; 2025 Cloud Security Team
@@ -675,7 +694,7 @@
                 <h3>III. Hình ảnh minh họa</h3>
                 <div class="gallery-grid">
                     <figure class="gallery-item">
-                        <img src="  _dtdm1.png" alt="Mô hình CDN" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=CDN+Image+1'">
+                        <img src="_dtdm1.png" alt="Mô hình CDN" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=CDN+Image+1'">
                         <figcaption>Hình 1: Cơ chế hoạt động CDN</figcaption>
                     </figure>
                     <figure class="gallery-item">
@@ -903,7 +922,7 @@
                 <h3>III. Phân tích lỗ hổng: SQL Injection</h3>
                 
                 <div class="comparison-grid">
-                     <div>
+                      <div>
                         <p><strong>SQL Injection (SQLi)</strong> cho phép kẻ tấn công chèn câu lệnh SQL độc hại qua input form.</p>
                         <ul class="content-list" style="margin-top: 10px;">
                             <li><strong>Vị trí:</strong> Form Đăng nhập (Login) hoặc Tìm kiếm (Search).</li>
@@ -1142,11 +1161,194 @@
 
 
         <section id="lab5" class="lab-section">
-            <div class="card">
-                <h2>LAB TUẦN 5</h2>
-                <p style="color: #64748b; font-style: italic;">Nội dung đang được cập nhật...</p>
-            </div>
-        </section>
+  <div class="card">
+  <h2><i class="fa-solid fa-exclamation-triangle"></i> LAB TUẦN 5 – ỨNG PHÓ SỰ CỐ & TỔNG HỢP KẾT QUẢ</h2>
+
+  <div class="highlight-box">
+  <h3><i class="fa-solid fa-info-circle"></i> I. Giới thiệu chung</h3>
+  <p>
+    Trong môi trường điện toán đám mây, câu hỏi không còn là “có xảy ra sự cố an toàn hay không”
+    mà là “khi nào xảy ra và hệ thống có đủ khả năng ứng phó hay không”.
+    Lab Tuần 5 tập trung vào Incident Response (Ứng phó sự cố) – giai đoạn quan trọng nhằm
+    phát hiện, phân tích, khoanh vùng, khắc phục sự cố và rút ra bài học cải thiện hệ thống.
+  </p>
+  <p>
+    Đây đồng thời là lab tổng hợp, liên kết toàn bộ kiến thức đã thực hiện trong 4 lab trước
+    về cloud, IAM, OWASP và monitoring – logging.
+  </p>
+  </div>
+
+  <h3><i class="fa-solid fa-question-circle"></i> II. Incident Response là gì?</h3>
+  <div class="highlight-box">
+  <p>
+    Incident Response là một quy trình có tổ chức nhằm xử lý các sự cố an toàn thông tin,
+    bao gồm việc phát hiện, giảm thiểu tác động, khôi phục hệ thống và ngăn chặn sự cố tái diễn.
+  </p>
+  <p>
+    Trong môi trường cloud, Incident Response đặc biệt quan trọng do hệ thống luôn public Internet,
+    phạm vi ảnh hưởng rộng và tốc độ lan truyền sự cố rất nhanh.
+  </p>
+  </div>
+
+  <h3><i class="fa-solid fa-cloud"></i> III. Vai trò của Incident Response trong môi trường Cloud</h3>
+  <table class="modern-table">
+    <tr>
+      <th>Đặc điểm môi trường cloud</th>
+      <th>Ảnh hưởng đến ứng phó sự cố</th>
+    </tr>
+    <tr>
+      <td>Tài nguyên co giãn, phân tán</td>
+      <td>Sự cố có thể lan nhanh nếu không phát hiện kịp thời</td>
+    </tr>
+    <tr>
+      <td>Truy cập từ Internet</td>
+      <td>Dễ bị tấn công từ xa, brute-force, scan lỗ hổng</td>
+    </tr>
+    <tr>
+      <td>Logging tập trung</td>
+      <td>Hỗ trợ phân tích và điều tra sự cố hiệu quả</td>
+    </tr>
+  </table>
+
+  <h3><i class="fa-solid fa-exclamation-circle"></i> IV. Dấu hiệu cho thấy sự cố an toàn đang xảy ra</h3>
+  <ul class="content-list">
+    <li>Số lượng request tăng cao bất thường trong thời gian ngắn</li>
+    <li>Nhiều lần đăng nhập thất bại liên tiếp</li>
+    <li>Truy cập từ địa chỉ IP hoặc vị trí địa lý không quen thuộc</li>
+    <li>Tài khoản đăng nhập thành công ngoài khung thời gian thông thường</li>
+    <li>Hành vi truy cập không phù hợp với vai trò người dùng</li>
+  </ul>
+
+  <h3><i class="fa-solid fa-list"></i> V. Phân loại các sự cố an toàn có thể xảy ra</h3>
+
+  <div class="comparison-grid">
+    <div class="box box-risk">
+      <h4><i class="fa-solid fa-key"></i> 1. Lộ tài khoản (Credential Leakage)</h4>
+      <ul class="content-list">
+        <li>Nguyên nhân: mật khẩu yếu, reuse mật khẩu, phishing</li>
+        <li>Hậu quả: kẻ tấn công truy cập hệ thống như người dùng hợp lệ</li>
+        <li>Liên hệ Lab 2: Authentication, Authorization và IAM</li>
+      </ul>
+    </div>
+
+    <div class="box box-risk">
+      <h4><i class="fa-solid fa-hammer"></i> 2. Tấn công Brute-force</h4>
+      <ul class="content-list">
+        <li>Dấu hiệu: nhiều lần đăng nhập thất bại liên tiếp</li>
+        <li>Mục tiêu: dò mật khẩu hoặc tài khoản hợp lệ</li>
+        <li>Phát hiện thông qua monitoring và logging</li>
+      </ul>
+    </div>
+
+    <div class="box box-risk">
+      <h4><i class="fa-solid fa-bug"></i> 3. Khai thác lỗ hổng ứng dụng</h4>
+      <ul class="content-list">
+        <li>Liên hệ Lab 3: OWASP Top 10</li>
+        <li>Ví dụ: Broken Access Control, Injection</li>
+        <li>Nguy hiểm hơn khi triển khai trên cloud do phạm vi ảnh hưởng rộng</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><i class="fa-solid fa-file-alt"></i> VI. Tình huống sự cố giả định</h3>
+  <div class="highlight-box">
+  <p>
+    Giả định hệ thống website của nhóm ghi nhận trong vòng 10 phút:
+  </p>
+  <ul class="content-list">
+    <li>Số lượng request tăng đột biến</li>
+    <li>Hơn 50 lần đăng nhập thất bại</li>
+    <li>Nhiều truy cập từ IP lạ</li>
+  </ul>
+  <p>
+    Monitoring giúp phát hiện lưu lượng bất thường, trong khi logging cho phép xác định
+    tài khoản bị nhắm tới, thời điểm xảy ra và nguồn tấn công.
+    Sự cố được phân loại là brute-force kết hợp dò tài khoản.
+  </p>
+  </div>
+
+  <h3><i class="fa-solid fa-sync-alt"></i> VII. Chu trình Incident Response theo NIST</h3>
+  <ol class="content-list" style="padding-left: 1.5rem; list-style-type: decimal;">
+    <li><strong>Preparation:</strong> Thiết lập IAM, logging, monitoring và chính sách truy cập</li>
+    <li><strong>Detection & Analysis:</strong> Phát hiện dấu hiệu và phân tích log</li>
+    <li><strong>Containment:</strong> Chặn IP, tạm khóa tài khoản nghi vấn</li>
+    <li><strong>Eradication:</strong> Vá lỗ hổng, thay đổi thông tin xác thực</li>
+    <li><strong>Recovery:</strong> Khôi phục dịch vụ và theo dõi hệ thống</li>
+    <li><strong>Lessons Learned:</strong> Đánh giá và cải thiện hệ thống</li>
+  </ol>
+
+  <h3><i class="fa-solid fa-chart-line"></i> VIII. Vai trò của Monitoring và Logging trong ứng phó sự cố</h3>
+  <div class="highlight-box">
+  <p>
+    Nếu không có monitoring và logging, hệ thống sẽ không thể phát hiện sớm sự cố,
+    không xác định được nguyên nhân, thời điểm và đối tượng gây ra sự cố.
+    Monitoring hỗ trợ phát hiện, trong khi logging là cơ sở cho điều tra và truy vết.
+  </p>
+  </div>
+
+  <h3><i class="fa-solid fa-handshake"></i> IX. Trách nhiệm trong môi trường Cloud (Shared Responsibility)</h3>
+  <table class="modern-table">
+    <tr>
+      <th>Thành phần</th>
+      <th>Chủ thể chịu trách nhiệm</th>
+    </tr>
+    <tr>
+      <td>Hạ tầng vật lý</td>
+      <td>Nhà cung cấp cloud</td>
+    </tr>
+    <tr>
+      <td>Mạng, máy chủ</td>
+      <td>Nhà cung cấp cloud</td>
+    </tr>
+    <tr>
+      <td>IAM, cấu hình bảo mật</td>
+      <td>Người vận hành hệ thống</td>
+    </tr>
+    <tr>
+      <td>Ứng dụng, mã nguồn</td>
+      <td>Người phát triển</td>
+    </tr>
+  </table>
+
+  <h3><i class="fa-solid fa-summary"></i> X. Tổng hợp kết quả toàn bộ học phần</h3>
+  <table class="modern-table">
+    <tr>
+      <th>Lab</th>
+      <th>Đóng góp vào an toàn hệ thống</th>
+    </tr>
+    <tr>
+      <td>Lab 1</td>
+      <td>Nền tảng cloud, CDN và bề mặt tấn công</td>
+    </tr>
+    <tr>
+      <td>Lab 2</td>
+      <td>Quản lý truy cập, IAM và Zero Trust</td>
+    </tr>
+    <tr>
+      <td>Lab 3</td>
+      <td>Phát hiện và khắc phục lỗ hổng OWASP</td>
+    </tr>
+    <tr>
+      <td>Lab 4</td>
+      <td>Monitoring, logging và phát hiện bất thường</td>
+    </tr>
+    <tr>
+      <td>Lab 5</td>
+      <td>Ứng phó sự cố và tổng hợp toàn bộ kiến thức</td>
+    </tr>
+  </table>
+
+  <h3><i class="fa-solid fa-check-circle"></i> XI. Kết luận</h3>
+  <div class="highlight-box">
+  <p>
+    Qua 5 lab, có thể thấy rằng an toàn điện toán đám mây không chỉ dừng lại ở việc triển khai
+    công nghệ mà là một quy trình liên tục từ phòng ngừa, phát hiện, ứng phó đến cải thiện.
+    Incident Response chính là bài kiểm tra thực tế cho toàn bộ hệ thống bảo mật cloud.
+  </p>
+  </div>
+  </div>
+</section>
+
 
     </main>
 
@@ -1162,7 +1364,7 @@
             const selectedSection = document.getElementById(labId);
             if (selectedSection) {
                 selectedSection.classList.add('active');
-            }
+            } 
 
             // Cập nhật trạng thái Active trên Sidebar
             document.querySelectorAll('.nav-links a').forEach(link => {
